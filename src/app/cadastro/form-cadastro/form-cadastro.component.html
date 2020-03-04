@@ -1,0 +1,41 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" >
+
+    <mat-form-field class="example-full-width blockd"   >
+        <mat-label>Nome</mat-label>
+        <input matInput required name="name"  [(ngModel)]="pessoa.name"  >
+        <mat-error >Por favor digite o seu <strong>nome</strong></mat-error>
+        
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width blockd">
+        <mat-label>Email</mat-label>
+        <input matInput  name="email" required email type="email"  [(ngModel)]="pessoa.email"  >
+        <mat-error >Por favor digite um e-mail <strong>valido</strong></mat-error>
+      </mat-form-field>
+
+    <mat-form-field class="example-full-width blockd">
+      <mat-label>Usuário</mat-label>
+      <input matInput required  name="login"  [(ngModel)]="pessoa.login"  >
+      <mat-error >Por favor digite um <strong>usuário</strong></mat-error>
+    </mat-form-field>
+  <div class="blockd">
+    <mat-form-field class="example-full-width blockd">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password"  required #pass="ngModel" name="password"  [(ngModel)]="pessoa.password"  >
+        <mat-error >Por favor digite uma <strong>senha</strong></mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width blockd"   >
+          <mat-label>Confirmar Senha</mat-label>
+          <input matInput type="password"  required pattern="{{pessoa.password}}" #pass2="ngModel" name="passwordconfirm"  [(ngModel)]="pessoa.confirma_password"  >
+          <mat-error >As senhas não <strong>coincidem</strong></mat-error>
+        </mat-form-field>
+  </div>
+   
+      <button mat-stroked-button  *ngIf="f.valid" type="submit"   style="background-color: rgb(20, 29, 109); color: white;width: 100%;margin-top: 30px;">Cadastrar</button>
+  </form>   
+
+  <button mat-stroked-button style="margin-top: 30px;"> Voltar</button>
+
+
+<!--   <pre>{{ pessoa | json }}</pre>
+  <pre>{{ f.valid }}</pre> -->

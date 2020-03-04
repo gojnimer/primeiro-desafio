@@ -1,0 +1,27 @@
+<mat-card  (capsLock)="capsOn=$event" style="padding: 50px;" class="example-full-width">
+    <mat-card-title>Login</mat-card-title>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.valid)">
+    <mat-form-field class="example-full-width" style="display: block;margin-bottom: 20px;">
+        <mat-label>Usuário</mat-label>
+        <input matInput required placeholder="Digite o seu usuário" email name="email" [(ngModel)]="user.email" >
+        <mat-error>
+          Por favor digite um <strong>email</strong> valido
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width" style="display: block;margin-bottom: 20px;">
+        <mat-label>Senha</mat-label>
+        <input (focus)="inputFocused()" name="password" [(ngModel)]="user.password"  required (focusout)="inputUnfocused()"  matInput placeholder="Digite a sua senha" [type]="hide ? 'password' : 'text'">
+        <mat-error>
+          Por favor digite a sua <strong>senha</strong>
+        </mat-error>
+        <mat-hint  *ngIf="capsOn" style="color:red;"><strong>CAPS LOCK </strong> ATIVADO</mat-hint >
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+       
+        </button>
+      </mat-form-field>
+
+      <button mat-stroked-button *ngIf="f.valid"  type="submit"     style="background-color: blueviolet; color: white;width: 100%;">ENVIAR</button>
+    </form>
+</mat-card>
