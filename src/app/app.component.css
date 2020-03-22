@@ -1,0 +1,29 @@
+.active {
+    color: blueviolet;
+    background-color: white;
+}
+
+
+#menu ul {
+
+    padding:0px;
+    margin:0px;
+    
+    list-style:none;
+}
+
+#menu ul li { display: inline;
+
+    margin: 0px;
+    outline: 0;
+    padding: 30px;
+    border: none;
+    cursor: pointer;    
+    
+    -moz-outline-style: none; }
+
+
+
+    .mat-toolbar-single-row{
+        padding:0% !important;
+    }

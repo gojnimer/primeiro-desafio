@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { CadastroService } from './../cadastro.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,9 +25,8 @@ export class FormCadastroComponent implements OnInit {
     regId: "",
     status: "Aprovado"
 
-
   }
-  constructor(private service:CadastroService) { }
+  constructor(private service:CadastroService,private router:Router) { }
 
   ngOnInit(): void {
     
@@ -35,10 +35,17 @@ export class FormCadastroComponent implements OnInit {
   onSubmit(form){
     
    this.service.create(this.pessoa).subscribe(
-     success => console.error("sucesso"),
-     error => console.error(error),
-     () => console.log("request completo")
+     success => {
+       alert("Conta criada com sucesso");
+       this.router.navigate(["/"]);
+     },
+     error => console.error(error)
+     
    );
+  }
+
+  home(){
+    this.router.navigate(['home']);
   }
 
 }

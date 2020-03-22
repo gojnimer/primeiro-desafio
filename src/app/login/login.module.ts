@@ -25,7 +25,6 @@ import {MatIconModule} from '@angular/material/icon';
     FormsModule
 
   ],
-  exports: [LoginComponent],
-  providers:[LoginService]
+  exports: [LoginComponent]
 })
 export class LoginModule { }

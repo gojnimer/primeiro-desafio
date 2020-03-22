@@ -1,3 +1,5 @@
+import { AuthGuard } from './guards/auth.guard';
+import { LoginService } from './login/login.service';
 import { AfterLoginModule } from './after-login/after-login.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,7 +11,7 @@ import { LoginModule } from './login/login.module';
 import { CadastroModule } from './cadastro/cadastro.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
     LoginModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatToolbarModule
  
   ],
-  providers: [],
+  providers:[LoginService,AuthGuard],
   bootstrap: [AppComponent]
-})
+})  
 export class AppModule { }

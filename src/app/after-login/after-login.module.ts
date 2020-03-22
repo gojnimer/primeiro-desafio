@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AfterLoginComponent } from './after-login.component';
 import {MatListModule} from '@angular/material/list';
-
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [AfterLoginComponent],

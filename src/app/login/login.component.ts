@@ -1,6 +1,7 @@
 import { LoginService } from './login.service';
 import { take } from 'rxjs/operators';
 import { Component, OnInit, Directive, Output, HostListener,EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,15 +17,31 @@ export class LoginComponent implements OnInit {
     email: "",
     password:"" 
   }
-  constructor(private service:LoginService) { }
+
+  erroAPI:boolean = false;
+  constructor(private service:LoginService,private router:Router) { }
 
   ngOnInit(): void {
+    sessionStorage.clear();
+    this.service.usuario = null;
+    this.service.navbar.emit(false);
   }
 
 
  onSubmit(t){
+   this.erroAPI = false;
    if(t){
-    this.service.Logar(this.user).subscribe(teste => console.log(teste));
+    this.service.Logar(this.user).subscribe(  
+      Success => {
+        this.service.usuario = JSON.parse(Success);
+        sessionStorage.setItem('usuario', Success);
+        this.service.navbar.emit(true);
+        this.router.navigate(["/"]);
+
+      },
+      Failure => {this.service.navbar.emit(false); this.erroAPI = true;}
+      
+      );
    }  
  
  }

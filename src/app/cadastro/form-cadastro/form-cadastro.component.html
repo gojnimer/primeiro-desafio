@@ -34,7 +34,7 @@
       <button mat-stroked-button  *ngIf="f.valid" type="submit"   style="background-color: rgb(20, 29, 109); color: white;width: 100%;margin-top: 30px;">Cadastrar</button>
   </form>   
 
-  <button mat-stroked-button style="margin-top: 30px;"> Voltar</button>
+  <button mat-stroked-button (click)="home()" style="margin-top: 30px;"> Voltar</button>
 
 
 <!--   <pre>{{ pessoa | json }}</pre>

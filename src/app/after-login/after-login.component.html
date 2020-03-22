@@ -1,8 +1,13 @@
+<mat-card *ngIf="listaAnime != null" style="border-radius: 0%;">
+    <mat-card-title>Animes</mat-card-title>
+    <mat-card style="margin-top: 5px;" *ngFor="let anim of listaAnime">
+         {{ anim.nome }} || {{ anim.personagemPrincipal }} || {{ anim.quantidadeEp }}
+        </mat-card>
+</mat-card>
 
 
-
-<mat-card>
+<mat-card style="border-radius: 0%;">
     <mat-card-title>Pokémons</mat-card-title>
     <mat-card style="margin-top: 5px;" *ngFor="let poke of listaPoke "> {{poke.name}}  </mat-card>
 </mat-card>
-  
+ 

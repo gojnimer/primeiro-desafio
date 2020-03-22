@@ -1,8 +1,13 @@
 <mat-card  (capsLock)="capsOn=$event" style="padding: 50px;" class="example-full-width">
     <mat-card-title>Login</mat-card-title>
     <form #f="ngForm" (ngSubmit)="onSubmit(f.valid)">
+      <p *ngIf="erroAPI" style="color: red;">
+        Usuário ou senha incorretos!
+      </p>
     <mat-form-field class="example-full-width" style="display: block;margin-bottom: 20px;">
+      
         <mat-label>Usuário</mat-label>
+        
         <input matInput required placeholder="Digite o seu usuário" email name="email" [(ngModel)]="user.email" >
         <mat-error>
           Por favor digite um <strong>email</strong> valido
@@ -21,6 +26,7 @@
        
         </button>
       </mat-form-field>
+      
 
       <button mat-stroked-button *ngIf="f.valid"  type="submit"     style="background-color: blueviolet; color: white;width: 100%;">ENVIAR</button>
     </form>
